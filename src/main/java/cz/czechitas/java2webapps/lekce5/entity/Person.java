@@ -7,7 +7,7 @@ import java.time.LocalDate;
 /**
  * Entita reprezentující osobu.
  */
-public class Person {
+public class Person { // properties, constructor, getter, setter, local date
   private String givenName;
   private String lastName;
   private LocalDate birthDate;

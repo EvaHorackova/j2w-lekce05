@@ -26,10 +26,10 @@
     </nav>
 
     <h2 class="mt-5 mb-3">Person detail</h2>
-    <div class="row g-3">
+    <form class="row g-3" method="post" action="/${id}">  [#--formulář, metoda, akce pro editaci konkrétní osoby--]
         <div class="col-md-3">
-            <label for="given-name" class="form-label">Given name</label>
-            <input id="given-name" name="givenName" class="form-control" type="text" value="${person.givenName!}"/>
+            <label for="given-name" class="form-label">Given name</label> [#--propojení label a input přes id--]
+            <input id="given-name" name="givenName" class="form-control" type="text" value="${person.givenName!}"/> [#--name, type, value--]
         </div>
         <div class="col-md-4">
             <label for="last-name" class="form-label">Last name</label>
@@ -41,16 +41,16 @@
         </div>
         <div class="col-md-2">
             <label for="gender" class="form-label">Gender</label>
-            <select id="gender" name="gender" class="form-select"  value="${person.gender!}">
+            <select id="gender" name="gender" class="form-select"  value="${(person.gender.name())!}">
                 [#list gender as item]
-                    <option value="${item.name()}">${item.title}</option>
+                    <option value="${item.name()}" ${(person.gender == item)?string("selected", "")}>${item.title}</option>
                 [/#list]
             </select>
         </div>
         <div class="col-md-1 align-self-end">
             <button type="submit" class="btn btn-primary"><i class="bi bi-person-check-fill" role="img" aria-label="Edit"></i></button>
         </div>
-    </div>
+    </form>
 </div>
 </body>
 </html>

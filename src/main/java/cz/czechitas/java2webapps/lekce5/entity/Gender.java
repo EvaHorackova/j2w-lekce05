@@ -1,6 +1,6 @@
 package cz.czechitas.java2webapps.lekce5.entity;
 
-public enum Gender {
+public enum Gender { // enum
   Female("female"),
   Male("male"),
   ;
